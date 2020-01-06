@@ -123,6 +123,7 @@ class RouterStrategy extends EventEmitter {
      * @param {string} url 
      */
     _fireURLChange(url) {
+        console.log("fire url");
         this.emit(EVENT_URL_CHANGE, url);
     }
 }

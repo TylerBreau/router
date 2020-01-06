@@ -45,6 +45,7 @@ class Router extends Component {
     }
     
     _onURLChange(url) {
+        console.log("url change", url, this.state.url);
         this.setState({
             url: url,
             shouldTransition : true
@@ -52,6 +53,7 @@ class Router extends Component {
     }
 
     UNSAFE_componentWillMount() {
+        console.log("unsafe will mount");
         instance = this;
         this.state.strategy.addURLChangeCallback(this._onURLChange);
     }
@@ -62,6 +64,7 @@ class Router extends Component {
     };
 
     UNSAFE_componentWillReceiveProps(nextProps) {
+        console.log("unsafe props");
         if (nextProps.strategy && (this.state.strategy instanceof nextProps.strategy)) {
             this.state.strategy.removeURLChangeCallback(this._onURLChange);
             var strat = new nextProps.strategy(this);

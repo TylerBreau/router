@@ -10,10 +10,12 @@ class HashStrategy extends RouterStrategy {
         this._position =  -1;
 
         window.addEventListener('popstate', (ev) => {
+            console.log("popstate");
             this._fireURLChange(this.getLocation());
         });
 
         window.addEventListener('hashchange', (e) => {
+            console.log("haschange");
             this._fireURLChange(this.getLocation())
         });
 
